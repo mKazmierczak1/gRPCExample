@@ -8,7 +8,7 @@ import org.example.model.GRPCServiceGrpc;
 
 public class ServerExample {
 
-  private static final int PORT = 6379;
+  private static final int PORT = 50051;
 
   public static void main(String[] args) {
     Server server = ServerBuilder.forPort(PORT).addService(new GRPCServiceImpl()).build();
