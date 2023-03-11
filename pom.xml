@@ -6,12 +6,18 @@
 
     <groupId>org.example</groupId>
     <artifactId>gRPCExample</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>gRPCServer</module>
+        <module>gRPCClient</module>
+        <module>model</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <grpc.version>1.52.1</grpc.version>
+        <grpc.version>1.53.0</grpc.version>
     </properties>
 
     <dependencies>
