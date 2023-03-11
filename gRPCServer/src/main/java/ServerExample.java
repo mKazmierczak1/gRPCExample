@@ -24,6 +24,7 @@ public class ServerExample {
 
   static class GRPCServiceImpl extends GRPCServiceGrpc.GRPCServiceImplBase {
 
+    @Override
     public void gRPCProcedure(GRPCRequest req, StreamObserver<GRPCResponse> responseObserver) {
       System.out.println("...called GrpcProcedure");
       String msg;
