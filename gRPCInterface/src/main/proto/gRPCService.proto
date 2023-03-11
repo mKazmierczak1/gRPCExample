@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "org.example.model";
+option java_outer_classname = "GRPCExampleProto";
+option objc_class_prefix = "GAP";
+
+service GRPCService {
+    rpc gRPCProcedure (GRPCRequest) returns (GRPCResponse) {}
+}
+
+message GRPCRequest {
+    string name = 1;
+    int32 age = 2;
+}
+
+message GRPCResponse {
+    string message = 1;
+}

@@ -11,7 +11,7 @@
     <modules>
         <module>gRPCServer</module>
         <module>gRPCClient</module>
-        <module>model</module>
+        <module>gRPCInterface</module>
     </modules>
 
     <properties>
