@@ -6,6 +6,7 @@ option objc_class_prefix = "GAP";
 
 service GRPCService {
     rpc gRPCProcedure (GRPCRequest) returns (GRPCResponse) {}
+    rpc gRPCStreamProcedure (GRPCRequest) returns (stream GRPCResponse) {}
 }
 
 message GRPCRequest {

@@ -26,7 +26,7 @@ public class ServerExample {
 
     @Override
     public void gRPCProcedure(GRPCRequest req, StreamObserver<GRPCResponse> responseObserver) {
-      System.out.println("...called GrpcProcedure");
+      System.out.println("...called UnaryProcedure - start");
       String msg;
 
       if (req.getAge() > 18) {
@@ -38,6 +38,29 @@ public class ServerExample {
       GRPCResponse response = GRPCResponse.newBuilder().setMessage("Hello " + msg).build();
       responseObserver.onNext(response);
       responseObserver.onCompleted();
+      System.out.println("...called UnaryProcedure - stop");
+    }
+
+    @Override
+    public void gRPCStreamProcedure(
+        GRPCRequest req, StreamObserver<GRPCResponse> responseObserver) {
+      System.out.println("...called StreamProcedure - start");
+      int chunksNum = 5;
+
+      for (int i = 0; i < chunksNum; i++) {
+        GRPCResponse response =
+            GRPCResponse.newBuilder().setMessage("Stream chunk" + (i + 1)).build();
+        responseObserver.onNext(response);
+
+        try {
+          Thread.sleep(300L);
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
+      }
+
+      responseObserver.onCompleted();
+      System.out.println("...called StreamProcedure - stop");
     }
   }
 }
